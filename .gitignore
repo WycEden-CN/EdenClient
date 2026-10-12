@@ -14,6 +14,32 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
+# IDEA files
+.idea
+*.iml
+*.ipr
+*.iws
+*.idea_modules
+*.idea_modules.xml
+*.idea_modules.iml
+*.idea_modules.ipr
+*.idea_modules.iws
+*.idea_modules.project
+*.idea_modules.project.xml
+*.idea_modules.project.iml
+*.idea_modules.project.ipr
+*.idea_modules.project.iws
+*.idea_modules.project.project
+*.idea_modules.project.project.xml
+*.idea_modules.project.project.iml
+*.idea_modules.project.project.ipr
+*.idea_modules.project.project.iws
+*.idea_modules.project.project.project
+*.idea_modules.project.project.project.xml
+
+# VS Code files
+.vscode/
+
 # Eclipse Gradle plugin generated files
 # Eclipse Core
 .project
