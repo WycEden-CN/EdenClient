@@ -8,6 +8,8 @@ import cn.wyceden.management.color.ColorManager;
 import cn.wyceden.management.config.ConfigManager;
 import cn.wyceden.management.hypixel.HypixelManager;
 import cn.wyceden.management.mod.ModManager;
+import cn.wyceden.management.mod.impl.optimization.OptimizationManager;
+import cn.wyceden.management.mod.impl.settings.SystemSettings;
 import cn.wyceden.management.music.MusicManager;
 import cn.wyceden.management.profile.ProfileManager;
 import cn.wyceden.management.user.UserManager;
@@ -22,7 +24,7 @@ public class Eden {
 	private final static Eden instance = new Eden();
 
 	private final String name = "Eden";
-	private final String version = "8.0";
+	private final String version = "26.10.25";
 
 	private long launchTime;
 
@@ -46,6 +48,10 @@ public class Eden {
 
 		modManager = new ModManager();
 		modManager.init();
+
+		SystemSettings.getInstance().applyLanguage(SystemSettings.getInstance().getLanguageSetting().getOption());
+		OptimizationManager.apply();
+
 		colorManager = new ColorManager();
 		musicManager = new MusicManager();
 		configManager = new ConfigManager();

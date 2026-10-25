@@ -6,6 +6,7 @@ import java.io.File;
 import cn.wyceden.management.mod.impl.settings.HUDModSettings;
 import cn.wyceden.shader.impl.KawaseBlur;
 import cn.wyceden.skia.context.SkiaContext;
+import cn.wyceden.skia.font.Fonts;
 import cn.wyceden.skia.image.ImageHelper;
 
 import io.github.humbleui.skija.Canvas;
@@ -377,13 +378,13 @@ public class Skia {
 
 	public static void drawText(String text, float x, float y, Color color, Font font) {
 		Rect bounds = font.measureText(text);
-		getCanvas().drawString(text, x - bounds.getLeft(), y - bounds.getTop(), font, getPaint(color));
+		drawTextRuns(text, x - bounds.getLeft(), y - bounds.getTop(), font, getPaint(color));
 	}
 
 	public static void drawCenteredText(String text, float x, float y, Color color, Font font) {
 		Rect bounds = font.measureText(text);
-		getCanvas().drawString(text, x - bounds.getLeft() - (bounds.getWidth() / 2), y - bounds.getTop(), font,
-				getPaint(color));
+		float width = containsCJK(text) ? measureTextWidth(text, font) : bounds.getWidth();
+		drawTextRuns(text, x - bounds.getLeft() - (width / 2), y - bounds.getTop(), font, getPaint(color));
 	}
 
 	public static void drawHeightCenteredText(String text, float x, float y, Color color, Font font) {
@@ -393,7 +394,7 @@ public class Skia {
 
 		float textCenterY = y + (metrics.getAscent() - metrics.getDescent()) / 2 - metrics.getAscent();
 
-		getCanvas().drawString(text, x - bounds.getLeft(), textCenterY, font, getPaint(color));
+		drawTextRuns(text, x - bounds.getLeft(), textCenterY, font, getPaint(color));
 	}
 
 	public static void drawFullCenteredText(String text, float x, float y, Color color, Font font) {
@@ -402,14 +403,104 @@ public class Skia {
 
 		FontMetrics metrics = font.getMetrics();
 
-		float textCenterX = x - bounds.getLeft() - (bounds.getWidth() / 2);
+		float width = containsCJK(text) ? measureTextWidth(text, font) : bounds.getWidth();
+		float textCenterX = x - bounds.getLeft() - (width / 2);
 		float textCenterY = y + (metrics.getAscent() - metrics.getDescent()) / 2 - metrics.getAscent();
 
-		getCanvas().drawString(text, textCenterX, textCenterY, font, getPaint(color));
+		drawTextRuns(text, textCenterX, textCenterY, font, getPaint(color));
 	}
 
 	public static Rect getTextBounds(String text, Font font) {
-		return font.measureText(text);
+		Rect bounds = font.measureText(text);
+		if (containsCJK(text)) {
+			float width = measureTextWidth(text, font);
+			bounds = Rect.makeXYWH(bounds.getLeft(), bounds.getTop(), width, bounds.getHeight());
+		}
+		return bounds;
+	}
+
+	/**
+	 * 按脚本（CJK / 非 CJK）将文本切分为若干段，分别用 Misans（中文）与 Inter（英文）绘制，
+	 * 实现中文字体为 Misans、英文字体保持 Inter 的混排效果。
+	 */
+	private static void drawTextRuns(String text, float x, float y, Font baseFont, Paint paint) {
+		if (!containsCJK(text)) {
+			getCanvas().drawString(text, x, y, baseFont, paint);
+			return;
+		}
+
+		Font cjkFont = Fonts.getCJKFont(baseFont);
+		float cx = x;
+		int i = 0;
+		int n = text.length();
+
+		while (i < n) {
+			int codePoint = text.codePointAt(i);
+			boolean cjk = isCJK(codePoint);
+			int start = i;
+			i += Character.charCount(codePoint);
+
+			while (i < n) {
+				int next = text.codePointAt(i);
+				if (isCJK(next) != cjk) {
+					break;
+				}
+				i += Character.charCount(next);
+			}
+
+			String run = text.substring(start, i);
+			Font font = cjk ? cjkFont : baseFont;
+			getCanvas().drawString(run, cx, y, font, paint);
+			cx += font.measureText(run).getWidth();
+		}
+	}
+
+	private static float measureTextWidth(String text, Font baseFont) {
+		Font cjkFont = Fonts.getCJKFont(baseFont);
+		float width = 0;
+		int i = 0;
+		int n = text.length();
+
+		while (i < n) {
+			int codePoint = text.codePointAt(i);
+			boolean cjk = isCJK(codePoint);
+			int start = i;
+			i += Character.charCount(codePoint);
+
+			while (i < n) {
+				int next = text.codePointAt(i);
+				if (isCJK(next) != cjk) {
+					break;
+				}
+				i += Character.charCount(next);
+			}
+
+			width += (cjk ? cjkFont : baseFont).measureText(text.substring(start, i)).getWidth();
+		}
+		return width;
+	}
+
+	private static boolean containsCJK(String text) {
+		int i = 0;
+		int n = text.length();
+		while (i < n) {
+			int codePoint = text.codePointAt(i);
+			if (isCJK(codePoint)) {
+				return true;
+			}
+			i += Character.charCount(codePoint);
+		}
+		return false;
+	}
+
+	private static boolean isCJK(int codePoint) {
+		return (codePoint >= 0x3000 && codePoint <= 0x303F)   // CJK 符号与标点
+				|| (codePoint >= 0x3400 && codePoint <= 0x4DBF)   // CJK 扩展 A
+				|| (codePoint >= 0x4E00 && codePoint <= 0x9FFF)   // CJK 统一汉字
+				|| (codePoint >= 0xF900 && codePoint <= 0xFAFF)   // CJK 兼容汉字
+				|| (codePoint >= 0xFF00 && codePoint <= 0xFFEF)   // 全角字符
+				|| (codePoint >= 0x3040 && codePoint <= 0x30FF)   // 平假名 + 片假名
+				|| (codePoint >= 0xAC00 && codePoint <= 0xD7A3);  // 谚文音节
 	}
 
 	public static String getLimitText(String text, Font font, float width) {

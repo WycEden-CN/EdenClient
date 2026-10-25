@@ -1,6 +1,7 @@
 package cn.wyceden.management.mod.settings.impl;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import cn.wyceden.Eden;
 import cn.wyceden.management.mod.Mod;
@@ -10,6 +11,8 @@ public class ComboSetting extends Setting {
 
 	private List<String> options;
 	private String defaultOption, option;
+
+	private Consumer<String> changeListener;
 
 	public ComboSetting(String name, String description, String icon, Mod parent, List<String> options, String option) {
 		super(name, description, icon, parent);
@@ -23,6 +26,9 @@ public class ComboSetting extends Setting {
 	@Override
 	public void reset() {
 		this.option = defaultOption;
+		if (changeListener != null) {
+			changeListener.accept(option);
+		}
 	}
 
 	public String getOption() {
@@ -31,6 +37,13 @@ public class ComboSetting extends Setting {
 
 	public void setOption(String option) {
 		this.option = option;
+		if (changeListener != null) {
+			changeListener.accept(option);
+		}
+	}
+
+	public void setOnChanged(Consumer<String> listener) {
+		this.changeListener = listener;
 	}
 
 	public List<String> getOptions() {

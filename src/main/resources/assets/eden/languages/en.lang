@@ -1,5 +1,5 @@
 #
-# Version 8.0
+# Version 26.10.25
 #
 text.all=All
 text.hud=HUD
@@ -306,3 +306,16 @@ setting.opacity=Opacity
 setting.opacity.description=Set the opacity
 setting.left=Left
 setting.right=Right
+
+setting.language=Language
+setting.language.description=Set the display language
+setting.language.auto=Auto (Follow System)
+setting.language.en=English
+setting.language.zh=Chinese
+
+setting.performancemode=Performance Mode
+setting.performancemode.description=Auto-balance quality and performance for bundled optimization mods
+setting.performancemode.auto=Auto (Balance)
+setting.performancemode.balanced=Balanced
+setting.performancemode.performance=Performance
+setting.performancemode.quality=Quality

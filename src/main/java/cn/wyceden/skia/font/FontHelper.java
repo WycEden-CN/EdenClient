@@ -24,6 +24,10 @@ public class FontHelper {
 				.orElseThrow(() -> new IllegalArgumentException("Font not found: " + font));
 	}
 
+	public static Typeface getTypeface(String font) {
+		return getTypeface(font, getFontType(font));
+	}
+
 	public static Font load(String font, float size, FontType fontType) {
 		Typeface typeface = getTypeface(font, fontType);
 		return new Font(typeface, size);

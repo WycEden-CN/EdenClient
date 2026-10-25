@@ -1,7 +1,10 @@
 package cn.wyceden.utils.language;
 
+import java.util.Locale;
+
 public enum Language {
-	ENGLISH("en");
+	ENGLISH("en"),
+	CHINESE("zh");
 
 	private final String id;
 
@@ -11,5 +14,13 @@ public enum Language {
 
 	public String getId() {
 		return id;
+	}
+
+	public static Language getSystemLanguage() {
+		String lang = Locale.getDefault().getLanguage();
+		if (lang.equalsIgnoreCase("zh")) {
+			return CHINESE;
+		}
+		return ENGLISH;
 	}
 }

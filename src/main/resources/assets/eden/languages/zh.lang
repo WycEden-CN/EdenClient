@@ -1,0 +1,318 @@
+#
+# Version 26.10.25
+#
+text.all=全部
+text.hud=HUD
+text.render=渲染
+text.player=玩家
+text.misc=杂项
+text.home=主页
+text.mods=模组
+text.music=音乐
+text.profile=配置
+text.settings=设置
+text.search=搜索
+text.selectfile=选择文件
+text.add=添加
+text.name=名称
+text.serveraddress=服务器地址
+text.createprofile=创建配置
+text.icon=图标
+
+design.simple=简约
+design.classic=经典
+design.clear=清晰
+design.materialyou=MaterialYou
+
+mod.hudsettings.name=HUD
+mod.hudsettings.description=自定义 HUD
+
+mod.modmenu.name=模组菜单
+mod.modmenu.description=自定义模组菜单相关设置
+
+mod.fpsdisplay.name=FPS 显示
+mod.fpsdisplay.description=显示 Minecraft FPS
+
+mod.coords.name=坐标
+mod.coords.description=显示你的坐标
+
+mod.combocounter.name=连击计数器
+mod.combocounter.description=显示连击数
+
+mod.reachdisplay.name=攻击距离显示
+mod.reachdisplay.description=显示攻击距离
+
+mod.daycounter.name=天数计数器
+mod.daycounter.description=计算 Minecraft 天数
+
+mod.stopwatch.name=秒表
+mod.stopwatch.description=测量时间
+
+mod.playercounter.name=玩家计数器
+mod.playercounter.description=显示玩家数量
+
+mod.healthdisplay.name=生命值显示
+mod.healthdisplay.description=显示你的生命值
+
+mod.yawdisplay.name=偏航角显示
+mod.yawdisplay.description=显示你的偏航角
+
+mod.pitchdisplay.name=俯仰角显示
+mod.pitchdisplay.description=显示你的俯仰角
+
+mod.jumpresetindicator.name=跳跃重置指示器
+mod.jumpresetindicator.description=指示跳跃重置是否正确完成
+
+mod.snaptap.name=按键优先
+mod.snaptap.description=最后按下的按键优先
+
+mod.gamemodedisplay.name=游戏模式显示
+mod.gamemodedisplay.description=显示你的游戏模式
+
+mod.keystrokes.name=按键显示
+mod.keystrokes.description=显示按下的按键
+
+mod.mousestrokes.name=鼠标移动显示
+mod.mousestrokes.description=显示鼠标移动
+
+mod.musicinfo.name=音乐信息
+mod.musicinfo.description=显示当前播放的音乐
+
+mod.hitdelayfix.name=攻击延迟修复
+mod.hitdelayfix.description=修复攻击延迟
+
+mod.nojumpdelay.name=无跳跃延迟
+mod.nojumpdelay.description=移除跳跃延迟
+
+mod.taplook.name=点击查看
+mod.taplook.description=一键切换视角方向
+
+mod.serveripdisplay.name=服务器 IP 显示
+mod.serveripdisplay.description=显示你正在加入的服务器的 IP
+
+mod.namedisplay.name=名称显示
+mod.namedisplay.description=显示你的名称
+
+mod.pingdisplay.name=延迟显示
+mod.pingdisplay.description=显示你的延迟
+
+mod.weatherdisplay.name=天气显示
+mod.weatherdisplay.description=显示世界天气
+
+mod.playtimedisplay.name=游戏时长显示
+mod.playtimedisplay.description=显示游戏时长
+
+mod.protocolversion.name=协议版本
+mod.protocolversion.description=显示协议版本
+
+mod.zoom.name=缩放
+mod.zoom.description=放大视角
+
+mod.overlayeditor.name=叠加层编辑器
+mod.overlayeditor.description=编辑叠加层
+
+mod.discordrpc.name=Discord 状态
+mod.discordrpc.description=启用 Discord 富状态
+
+mod.weatherchanger.name=天气修改器
+mod.weatherchanger.description=更改天气
+
+mod.timechanger.name=时间修改器
+mod.timechanger.description=更改世界时间
+
+mod.freelook.name=自由视角
+mod.freelook.description=可以转动头部而不改变方向
+
+mod.clock.name=时钟
+mod.clock.description=显示当前时间
+
+mod.memoryusage.name=内存使用
+mod.memoryusage.description=显示 Minecraft 内存使用情况
+
+mod.bedwarsstatsoverlay.name=起床战争数据叠加层
+mod.bedwarsstatsoverlay.description=显示起床战争数据
+
+mod.oldanimations.name=旧版动画
+mod.oldanimations.description=恢复 1.7 动画
+
+mod.hypixel.name=Hypixel
+mod.hypixel.description=Hypixel 实用功能
+
+mod.particles.name=粒子
+mod.particles.description=自定义粒子
+
+mod.bloodparticles.name=血液粒子
+mod.bloodparticles.description=添加血液效果
+
+mod.projectiletrail.name=抛射物轨迹
+mod.projectiletrail.description=显示投掷物体后的效果
+
+mod.musicwaveform.name=音乐波形
+mod.musicwaveform.description=显示当前播放音乐的波形
+
+mod.speedometer.name=速度计
+mod.speedometer.description=显示玩家速度
+
+mod.autogg.name=自动 GG
+mod.autogg.description=游戏结束时自动发送 gg
+
+mod.customhand.name=自定义手部
+mod.customhand.description=更改位置、缩放等
+
+mod.bossbar.name=BOSS 血条
+mod.bossbar.description=自定义 BOSS 血条
+
+mod.systemsettings.name=系统设置
+mod.systemsettings.description=设置系统详情
+
+mod.fullbright.name=全亮
+mod.fullbright.description=照亮你的视角
+
+mod.webbrowser.name=网页浏览器
+mod.webbrowser.description=显示网页浏览器
+
+mod.forcemainhand.name=强制主手
+mod.forcemainhand.description=强制设置主手
+
+setting.darkmode=深色模式
+setting.darkmode.description=启用深色模式
+setting.keybind=按键绑定
+setting.keybind.description=设置按键绑定
+setting.icon=图标
+setting.icon.description=设置要显示的图标
+setting.color=颜色
+setting.color.description=选择颜色
+setting.blur=模糊
+setting.blur.description=设置模糊效果
+setting.design=设计
+setting.design.description=设置设计
+setting.blurintensity=模糊强度
+setting.blurintensity.description=设置模糊强度
+setting.maxtick=最大刻
+setting.maxtick.description=设置最大刻数
+setting.spacekey=空格键
+setting.spacekey.description=显示空格键
+setting.unmarked=未标记
+setting.unmarked.description=隐藏标记
+setting.snaptapcompatibility=SnapTap 兼容性
+setting.snaptapcompatibility.description=反映 Snap Tap 释放的按键
+setting.type=类型
+setting.type.description=设置类型
+setting.cover=封面
+setting.simple=简约
+setting.normal=普通
+setting.perspective=视角
+setting.perspective.description=设置视角方向
+setting.front=前方
+setting.behind=后方
+setting.toggle=切换
+setting.toggle.description=改为切换模式
+setting.refreshtime=刷新时间
+setting.refreshtime.description=设置刷新时间
+setting.scroll=滚动
+setting.zoom.scroll.description=使缩放可滚动
+setting.smoothzoom=平滑缩放
+setting.smoothzoom.description=使缩放平滑
+setting.zoomspeed=缩放速度
+setting.zoomspeed.description=更改缩放动画速度
+setting.zoomfactor=缩放系数
+setting.zoomfactor.description=更改缩放系数
+setting.smoothcamera=平滑相机
+setting.smoothcamera.description=平滑移动相机
+setting.clearwater=清澈水面
+setting.clearwater.description=移除水面叠加
+setting.clearfire=清除火焰
+setting.clearfire.description=移除火焰叠加
+setting.weather=天气
+setting.weather.description=设置天气
+setting.clear=晴朗
+setting.rain=下雨
+setting.storm=雷雨
+setting.snow=下雪
+setting.time=时间
+setting.time.description=设置时间
+setting.max=最大
+setting.max.description=设置最大值
+setting.oldbreaking=旧版破坏
+setting.oldbreaking.description=使用剑或进食时恢复格挡动画
+setting.disableattackcooldown=禁用攻击冷却
+setting.disableattackcooldown.description=攻击时防止剑进入冷却
+setting.oldpvpsounds=旧版 PvP 音效
+setting.oldpvpsounds.description=禁用新版 PvP 音效
+setting.oldrod=旧版鱼竿
+setting.oldrod.description=恢复旧版鱼竿
+setting.oldbow=旧版弓
+setting.oldbow.description=恢复旧版弓
+setting.disableheartflash=禁用心跳闪烁
+setting.disableheartflash.description=禁用心跳闪烁并恢复 1.7
+setting.levelhead=等级显示
+setting.levelhead.description=在名称标签上显示 Hypixel 等级
+setting.autotip=自动提示
+setting.autotip.description=自动发送提示
+setting.alwayssharpness=始终锋利
+setting.alwayssharpness.description=始终生成锋利效果
+setting.alwayscriticals=始终暴击
+setting.alwayscriticals.description=始终生成暴击效果
+setting.sharpness=锋利
+setting.sharpness.description=启用锋利效果
+setting.criticals=暴击
+setting.criticals.description=启用暴击效果
+setting.sharpnessamount=锋利强度
+setting.sharpnessamount.description=设置锋利效果强度
+setting.criticalsamount=暴击强度
+setting.criticalsamount.description=设置暴击效果强度
+setting.sound=音效
+setting.sound.description=启用音效
+setting.multiplier=倍率
+setting.multiplier.description=设置倍率
+setting.blacksmoke=黑色烟雾
+setting.fire=火焰
+setting.greenstar=绿色星星
+setting.hearts=爱心
+setting.magic=魔法
+setting.musicnote=音符
+setting.slime=史莱姆
+setting.spark=火花
+setting.swirl=漩涡
+setting.whitesmoke=白色烟雾
+setting.effect=效果
+setting.effect.description=设置效果类型
+setting.x=X
+setting.x.description=设置 X 位置
+setting.y=Y
+setting.y.description=设置 Y 位置
+setting.z=Z
+setting.z.description=设置 Z 位置
+setting.scale=缩放
+setting.scale.description=设置缩放
+setting.vanillaposition=原版位置
+setting.vanillaposition.description=设置为原版位置
+setting.blurtype=模糊类型
+setting.blurtype.description=设置模糊类型
+setting.fastblur=快速模糊
+setting.normalblur=普通模糊
+setting.ytdlppath=Ytdlp 路径
+setting.ytdlppath.description=设置 ytdlp 路径
+setting.ffmpegpath=FFmpeg 路径
+setting.ffmpegpath.description=设置 ffmpeg 路径
+setting.ytdlpcommand=Ytdlp 命令
+setting.ytdlpcommand.description=设置 ytdlp 命令
+setting.gamma=伽马
+setting.gamma.description=设置伽马
+setting.opacity=不透明度
+setting.opacity.description=设置不透明度
+setting.left=左
+setting.right=右
+
+setting.language=语言
+setting.language.description=设置显示语言
+setting.language.auto=自动
+setting.language.en=English
+setting.language.zh=中文
+
+setting.performancemode=性能模式
+setting.performancemode.description=为内置优化模组自动平衡画质与性能
+setting.performancemode.auto=自动（平衡）
+setting.performancemode.balanced=平衡
+setting.performancemode.performance=性能优先
+setting.performancemode.quality=画质优先
